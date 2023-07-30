@@ -1,0 +1,33 @@
+.button {
+  @include button-default;
+  padding: 10px 16px 10px 10px;
+  border-radius: 5px;
+  background-color: var(--blue);
+  display: flex;
+  column-gap: 7px;
+  align-items: center;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.button__plus {
+  width: 11px;
+  height: 11px;
+}
+
+.button__text {
+  font-size: 14px;
+  color: var(--white);
+  line-height: 15px;
+}

@@ -1,0 +1,31 @@
+.page-body {
+  min-width: $min-container-width;
+  min-height: 100%;
+  min-width: 100%;
+  margin: 0;
+
+  background: var(--mist);
+  color: var(--black);
+
+  font-weight: 400;
+  font-size: 16px;
+  font-family: MyriadPro, Arial, sans-serif;
+  line-height: 16px;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    content: "";
+    width: 0;
+    background: $gradient;
+    transition: width 0.3s linear;
+  }
+
+  @media (min-width: 1000px) {
+    &::before {
+      width: 229px;
+    }
+  }
+}

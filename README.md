@@ -1,6 +1,6 @@
-# Digital Element. Frontend test assignment. 
-[![CI](https://github.com/Teihden/d-element-test/actions/workflows/CI.yml/badge.svg)](https://github.com/Teihden/d-element-test/actions/workflows/CI.yml)
-[![Github Pages](https://github.com/Teihden/d-element-test/actions/workflows/github-pages-with-gulp.yml/badge.svg)](https://github.com/Teihden/d-element-test/actions/workflows/github-pages-with-gulp.yml)
+# OPT6. Frontend test assignment. 
+[![CI](https://github.com/Teihden/opt6-test/actions/workflows/CI.yml/badge.svg)](https://github.com/Teihden/opt6-test/actions/workflows/CI.yml)
+[![Github Pages](https://github.com/Teihden/opt6-test/actions/workflows/github-pages-with-gulp.yml/badge.svg)](https://github.com/Teihden/opt6-test/actions/workflows/github-pages-with-gulp.yml)
 
 ## Setup
 

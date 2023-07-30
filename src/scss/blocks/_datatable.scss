@@ -1,0 +1,114 @@
+// DataTables overridden CSS
+/* stylelint-disable */
+
+#table-container {
+  .dataTable {
+    border-collapse: collapse;
+    border-bottom: none;
+  }
+
+  .table__head-cell {
+    border: 1px solid var(--light-gray);
+    font-weight: 600;
+    padding: 14px 8px;
+  }
+
+  .dt-button-down-arrow {
+    display: none;
+  }
+
+  .sorting_asc {
+    cursor: auto;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .buttons-collection {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background: transparent;
+    user-select: none;
+    font-family: inherit;
+  }
+
+  .dt-buttons {
+    float: none;
+    text-align: right;
+    margin: 7px 14px 0 auto;
+  }
+
+  .dtb-b1 {
+    width: max-content;
+    padding: 6px 8px 6px 11px;
+    border-radius: 5px;
+    box-shadow: $box-shadow-filter;
+    background-color: var(--white);
+    margin: 0;
+  }
+
+  .dt-button-collection:not(.dtb-b1) {
+    width: max-content;
+    padding: 6px 0;
+    border-radius: 5px;
+    box-shadow: $box-shadow-filter;
+    margin: 0;
+
+    div[role="menu"] {
+      display: flex;
+      row-gap: 11px;
+      flex-direction: column;
+    }
+  }
+
+  .buttons-columnVisibility {
+    padding: 0 8px;
+    display: flex;
+    column-gap: 4px;
+    font-size: 14px;
+    color: var(--dark);
+    font-family: inherit;
+
+    &::before {
+      display: block;
+      content: '';
+      width: 13px;
+      height: 14px;
+      border-radius: 3px;
+      border: solid 1px var(--grayish-blue);
+      // margin: 0 0 0 0;
+    }
+
+    &.dt-button-active::after {
+      content: '';
+      background-image: url("../img/general/tick.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 13px;
+      height: 14px;
+      border-radius: 3px;
+      background-color: var(--dark-blue);
+      top: 10px;
+      left: 8px;
+    }
+  }
+
+  .dt-button-collection-title {
+    display: flex;
+    column-gap: 10px;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: start;
+    padding: 0 0 13px;
+    margin: 0 8px;
+  }
+}
+
+.DTCR_pointer {
+  background-color: var(--light-gray) !important;
+  margin-left: -2px;
+}
+
