@@ -1,13 +1,13 @@
 /* eslint-disable no-undef */
 import { handleEscapeKey } from './utils.js';
 
-const DELETE_BUTTON = `<button class="table-data__delete-button" type="button">
-<span class="table-data__delete-button-text">Удалить</span></button>`;
+const DELETE_BUTTON = `<button class="data-table__delete-button" type="button">
+<span class="data-table__delete-button-text">Удалить</span></button>`;
 
 const closeDeleteButton = (deleteButton, target) => {
   console.log(target);
   deleteButton.fadeTo('fast', 0, () => deleteButton.remove());
-  target.removeClass('table-data__multipoint-button--active');
+  target.removeClass('data-table__multipoint-button--active');
   $(document).off();
 };
 
@@ -25,8 +25,8 @@ const deleteRow = (dataTable, evt) => {
 const createDeleteButton = (evt, dataTable) => {
   const target = $(evt.currentTarget);
 
-  if (!target.next('.table-data__delete-button').length > 0) {
-    target.addClass('table-data__multipoint-button--active');
+  if (!target.next('.data-table__delete-button').length > 0) {
+    target.addClass('data-table__multipoint-button--active');
 
     const deleteButton = $(DELETE_BUTTON);
     const closeDeleteButtonCallback = () => closeDeleteButton(deleteButton, target);

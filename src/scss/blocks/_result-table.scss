@@ -1,15 +1,15 @@
-.table-result {
+.result-table {
   width: 308px;
 }
 
-.table-result__body {
+.result-table__body {
   display: block;
   border-radius: 5px;
   border: solid 1px var(--light-gray);
   background-color: var(--mist);
 }
 
-.table-result__head-cell {
+.result-table__head-cell {
   padding-inline: 15px;
   font-size: 14px;
   line-height: 15px;
@@ -21,7 +21,7 @@
   }
 }
 
-.table-result__body-cell {
+.result-table__body-cell {
   padding-inline: 15px;
   font-size: 14px;
   line-height: 15px;
@@ -32,20 +32,20 @@
   }
 }
 
-.table-result__row {
+.result-table__row {
   display: flex;
   justify-content: space-between;
 
   &:first-child,
   &:last-child {
-    .table-result__head-cell,
-    .table-result__body-cell {
+    .result-table__head-cell,
+    .result-table__body-cell {
       padding-block: 14px;
     }
   }
 }
 
-.table-result__footer {
+.result-table__footer {
   display: block;
   border-radius: 5px;
   border: solid 1px var(--light-gray);

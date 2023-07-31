@@ -4,5 +4,5 @@
 /* eslint-disable no-undef */
 import { initDatatable } from './modules/datatables.js';
 
-const myTable = $('#table-data');
+const myTable = $('#data-table');
 initDatatable(myTable);

@@ -1,10 +1,10 @@
-.table-data__data {
+.data-table__data {
   width: 100%;
   max-width: 100%;
   white-space: nowrap;
 }
 
-.table-data__head-cell {
+.data-table__head-cell {
   border: 1px solid var(--light-gray) !important;
   font-weight: 600;
   padding: 14px 8px !important;
@@ -15,7 +15,7 @@
   text-overflow: clip;
 }
 
-.table-data__body-cell {
+.data-table__body-cell {
   padding: 8px 15px !important;
 
   overflow: hidden;
@@ -26,7 +26,7 @@
   }
 }
 
-.table-data__container-cell {
+.data-table__container-cell {
   margin: 5px 14px 3px;
 
   &--multipoint {
@@ -34,17 +34,17 @@
   }
 }
 
-.table-data__body-order {
+.data-table__body-order {
   font-size: 16px;
   margin: 0 0 0 6px;
 }
 
-.table-data__drag {
+.data-table__drag {
   width: 11px;
   height: 12px;
 }
 
-.table-data__drag-button {
+.data-table__drag-button {
   @include default-button;
   cursor: grab;
   transition: opacity 0.2s ease-in-out;
@@ -52,25 +52,25 @@
   align-items: center;
 
   &:hover {
-    .table-data__drag {
+    .data-table__drag {
       opacity: 0.8;
     }
   }
 
   &:focus {
-    .table-data__drag {
+    .data-table__drag {
       opacity: 0.8;
     }
   }
 
   &:active {
-    .table-data__drag {
+    .data-table__drag {
       opacity: 0.6;
     }
   }
 }
 
-.table-data__gear {
+.data-table__gear {
   width: 15px;
   height: 15px;
   fill: var(--grayish-blue);
@@ -89,7 +89,7 @@
   }
 }
 
-.table-data__filter-text {
+.data-table__filter-text {
   font-size: 14px;
   color: var(--dark);
   line-height: 15px;
@@ -100,7 +100,7 @@
   }
 }
 
-.table-data__filter-breadcrumbs {
+.data-table__filter-breadcrumbs {
   width: 5px;
   height: 10px;
   margin: 0 0 0 9px;
@@ -111,14 +111,14 @@
   }
 }
 
-.table-data__multipoint {
+.data-table__multipoint {
   width: 3px;
   height: 13px;
   fill: var(--grayish-blue);
   vertical-align: middle;
 }
 
-.table-data__multipoint-button {
+.data-table__multipoint-button {
   @include default-button;
   position: relative;
   transition: opacity 0.2s ease-in-out;
@@ -128,7 +128,7 @@
   text-align: left;
 
   &--active {
-    .table-data__multipoint {
+    .data-table__multipoint {
       fill: var(--light-navy);
     }
   }
@@ -146,7 +146,7 @@
   }
 }
 
-.table-data__delete-button {
+.data-table__delete-button {
   @include default-button;
   position: absolute;
   top: 20px;
@@ -173,7 +173,7 @@
   }
 }
 
-.table-data__delete-button-text {
+.data-table__delete-button-text {
   font-family: inherit;
   font-size: 14px;
   color: var(--red);

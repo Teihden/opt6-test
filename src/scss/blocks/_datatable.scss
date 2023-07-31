@@ -1,6 +1,51 @@
-// DataTables overridden CSS
-/* stylelint-disable */
+/* stylelint-disable plugin/selector-bem-pattern*/
 
+// DataTables overridden CSS
+// colReorder styles
+.DTCR_pointer {
+  background-color: var(--light-gray) !important;
+  margin-left: -2px;
+}
+
+.DTCR_clonedTable {
+  cursor: grabbing !important;
+  border: 1px solid var(--light-gray) !important;
+
+  * {
+    cursor: grabbing !important;
+  }
+
+  &::before,
+  &::after {
+    display: none !important;
+  }
+}
+
+// rowReorder styles
+.dt-rowReorder-float-parent {
+  outline: none !important;
+
+  * {
+    cursor: grabbing !important;
+  }
+
+  table {
+    border-bottom: none !important;
+    ;
+  }
+}
+
+.dt-rowReorder-moving {
+  border-radius: 5px !important;
+  outline: 2px dashed var(--grayish-blue) !important;
+  background-color: var(--mist) !important;
+
+  * {
+    opacity: 0;
+  }
+}
+
+// General styles
 #table-container {
   .dataTable {
     border-collapse: collapse;
@@ -12,6 +57,7 @@
   }
 
   .sorting_asc {
+
     &::before,
     &::after {
       display: none;
@@ -101,24 +147,5 @@
     justify-content: start;
     padding: 0 0 13px;
     margin: 0 8px;
-  }
-}
-
-.DTCR_pointer {
-  background-color: var(--light-gray) !important;
-  margin-left: -2px;
-}
-
-.DTCR_clonedTable {
-  cursor: grabbing;
-
-  .sorting_asc {
-    cursor: grabbing !important;
-
-    &::before,
-    &::after {
-      display: none !important;
-
-    }
   }
 }
