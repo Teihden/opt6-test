@@ -1,9 +1,9 @@
 section.table
-  .table__block-button
-    button.table__button.button#new(type="button")
-      svg.button__plus
+  .table__container-new-row-button
+    button.new-row-button#new-row-button(type="button")
+      svg.new-row-button__plus
         use(href="img/icons/sprite.svg#plus")
-      span.button__text Добавить строку
+      span.new-row-button__text Добавить строку
   .table__container#table-container
     table.table__data.nowrap#table
       thead.table__head
@@ -19,95 +19,105 @@ section.table
           th.table__head-cell Итого
       tbody
         tr
-          td
-            svg.table__hamburger
-              use(href="img/icons/sprite.svg#hamburger")
-            span.table__body-order 1
-          td(data-label="Действие")
-          td(data-label="Наименование единицы")
-            select(name="name")
-              option Мраморный щебень фр. 2-5 мм, 25кг
-              option Мраморный щебень фр. 2-5 мм, 25кг (белый)
-              option Мраморный щебень фр. 2-5 мм, 25кг (вайт)
-              option Мраморный щебень фр. 2-5 мм, 25кг, возврат
-              option Мраморный щебень фр. 2-5 мм, 1т
-          td(data-label="Цена")
-          td(data-label="Кол-во")
-            input(type="text" name="quantity")
-          td(data-label="Цена доставки, руб")
-          td(data-label="Max грузоподъемность, кг")
-          td(data-label="Название товара")
-          td(data-label="Итого")
+          td.table__body-cell
+            .table__container-cell
+              button.table__drag-button(type="button")
+                svg.table__drag
+                  use(href="img/icons/sprite.svg#hamburger")
+                span.table__body-order 1
+          td.table__body-cell.table__body-cell--action(data-label="Действие")
+          td.table__body-cell(data-label="Наименование единицы")
+            .table__container-cell
+              select(name="name")
+                option Мраморный щебень фр. 2-5 мм, 25кг
+                option Мраморный щебень фр. 2-5 мм, 25кг (белый)
+                option Мраморный щебень фр. 2-5 мм, 25кг (вайт)
+                option Мраморный щебень фр. 2-5 мм, 25кг, возврат
+                option Мраморный щебень фр. 2-5 мм, 1т
+          td.table__body-cell(data-label="Цена")
+            //- .table__container-cell
+            //-   button.table__delete-button(type="button")
+            //-     span.table__delete-button-text Удалить
+          td.table__body-cell(data-label="Кол-во")
+            .table__container-cell
+              input(type="text" name="quantity")
+          td.table__body-cell(data-label="Цена доставки, руб")
+            .table__container-cell
+          td.table__body-cell(data-label="Max грузоподъемность, кг")
+            .table__container-cell
+          td.table__body-cell(data-label="Название товара")
+            .table__container-cell
+          td.table__body-cell(data-label="Итого")
+            .table__container-cell
         tr
-          td
-            svg.table__hamburger
-              use(href="img/icons/sprite.svg#hamburger")
-            span.table__body-order 2
-          td(data-label="Действие")
-          td(data-label="Наименование единицы")
-            select(name="name")
-              option Мраморный щебень фр. 2-5 мм, 25кг
-              option Мраморный щебень фр. 2-5 мм, 25кг (белый)
-              option Мраморный щебень фр. 2-5 мм, 25кг (вайт)
-              option Мраморный щебень фр. 2-5 мм, 25кг, возврат
-              option Мраморный щебень фр. 2-5 мм, 1т
-          td(data-label="Цена")
-          td(data-label="Кол-во")
-            input(type="text" name="quantity")
-          td(data-label="Цена доставки, руб")
-          td(data-label="Max грузоподъемность, кг")
-          td(data-label="Название товара")
-          td(data-label="Итого")
+          td.table__body-cell
+            .table__container-cell
+              button.table__drag-button(type="button")
+                svg.table__drag
+                  use(href="img/icons/sprite.svg#hamburger")
+                span.table__body-order 2
+          td.table__body-cell.table__body-cell--action(data-label="Действие")
+          td.table__body-cell(data-label="Наименование единицы")
+            .table__container-cell
+              select(name="name")
+                option Мраморный щебень фр. 2-5 мм, 25кг
+                option Мраморный щебень фр. 2-5 мм, 25кг (белый)
+                option Мраморный щебень фр. 2-5 мм, 25кг (вайт)
+                option Мраморный щебень фр. 2-5 мм, 25кг, возврат
+                option Мраморный щебень фр. 2-5 мм, 1т
+          td.table__body-cell(data-label="Цена")
+            .table__container-cell
+          td.table__body-cell(data-label="Кол-во")
+            .table__container-cell
+              input(type="text" name="quantity")
+          td.table__body-cell(data-label="Цена доставки, руб")
+            .table__container-cell
+          td.table__body-cell(data-label="Max грузоподъемность, кг")
+            .table__container-cell
+          td.table__body-cell(data-label="Название товара")
+            .table__container-cell
+          td.table__body-cell(data-label="Итого")
+            .table__container-cell
         tr
-          td
-            svg.table__hamburger
-              use(href="img/icons/sprite.svg#hamburger")
-            span.table__body-order 3
-          td(data-label="Действие")
-          td(data-label="Наименование единицы")
-            select(name="name")
-              option Мраморный щебень фр. 2-5 мм, 25кг
-              option Мраморный щебень фр. 2-5 мм, 25кг (белый)
-              option Мраморный щебень фр. 2-5 мм, 25кг (вайт)
-              option Мраморный щебень фр. 2-5 мм, 25кг, возврат
-              option Мраморный щебень фр. 2-5 мм, 1т
-          td(data-label="Цена")
-          td(data-label="Кол-во")
-            input(type="text" name="quantity")
-          td(data-label="Цена доставки, руб")
-          td(data-label="Max грузоподъемность, кг")
-          td(data-label="Название товара")
-          td(data-label="Итого")
-        tr.table__row
-          td
-            svg.table__hamburger
-              use(href="img/icons/sprite.svg#hamburger")
-            span.table__body-order 4
-          td(data-label="Действие")
-          td(data-label="Наименование единицы")
-            select(name="name")
-              option Мраморный щебень фр. 2-5 мм, 25кг
-              option Мраморный щебень фр. 2-5 мм, 25кг (белый)
-              option Мраморный щебень фр. 2-5 мм, 25кг (вайт)
-              option Мраморный щебень фр. 2-5 мм, 25кг, возврат
-              option Мраморный щебень фр. 2-5 мм, 1т
-          td(data-label="Цена")
-          td(data-label="Кол-во")
-            input(type="text" name="quantity")
-          td(data-label="Цена доставки, руб")
-          td(data-label="Max грузоподъемность, кг")
-          td(data-label="Название товара")
-          td(data-label="Итого")
+          td.table__body-cell
+            .table__container-cell
+              button.table__drag-button(type="button")
+                svg.table__drag
+                  use(href="img/icons/sprite.svg#hamburger")
+                span.table__body-order 3
+          td.table__body-cell.table__body-cell--action(data-label="Действие")
+          td.table__body-cell(data-label="Наименование единицы")
+            .table__container-cell
+              select(name="name")
+                option Мраморный щебень фр. 2-5 мм, 25кг
+                option Мраморный щебень фр. 2-5 мм, 25кг (белый)
+                option Мраморный щебень фр. 2-5 мм, 25кг (вайт)
+                option Мраморный щебень фр. 2-5 мм, 25кг, возврат
+                option Мраморный щебень фр. 2-5 мм, 1т
+          td.table__body-cell(data-label="Цена")
+            .table__container-cell
+          td.table__body-cell(data-label="Кол-во")
+            .table__container-cell
+              input(type="text" name="quantity")
+          td.table__body-cell(data-label="Цена доставки, руб")
+            .table__container-cell
+          td.table__body-cell(data-label="Max грузоподъемность, кг")
+            .table__container-cell
+          td.table__body-cell(data-label="Название товара")
+            .table__container-cell
+          td.table__body-cell(data-label="Итого")
+            .table__container-cell
+
         //- tfoot
         //-   tr
         //-     th(colspan="8") Сумма:
-        //-     td 0
+        //-     td.table__body-cell 0
         //-   tr
         //-     th(colspan="8") Кол-во:
-        //-     td 0
+        //-     td.table__body-cell 0
         //-   tr
         //-     th(colspan="8") Общий вес:
-        //-     td 0
+        //-     td.table__body-cell 0
         //-   tr
         //-     th(colspan="8") Общая сумма:
-        //-     td 0
+        //-     td.table__body-cell 0

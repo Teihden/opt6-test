@@ -7,7 +7,7 @@
   }
 }
 
-.table__block-button {
+.table__container-new-row-button {
   padding: 19px 24px;
   background-color: var(--white);
   border-radius: 10px;
@@ -17,7 +17,6 @@
 }
 
 .table__container {
-  // padding: 9px 1px 25px;
   border-radius: 10px;
   box-shadow: $box-shadow;
   border: solid 1px var(--light-gray);
@@ -30,22 +29,77 @@
   white-space: nowrap;
 }
 
-.table__data th,
-.table__data td {
+.table__head-cell {
+  border: 1px solid var(--light-gray) !important;
+  font-weight: 600;
+  padding: 14px 8px !important;
+  cursor: grab;
+  user-select: none;
+
   overflow: hidden;
   text-overflow: clip;
 }
 
-.table__hamburger {
+.table__body-cell {
+  padding: 8px 15px !important;
+
+  overflow: hidden;
+  text-overflow: clip;
+
+  &--action {
+    overflow: unset !important;
+  }
+}
+
+.table__container-cell {
+  margin: 5px 14px 3px;
+
+  &--multipoint {
+    position: relative;
+  }
+}
+
+.table__body-order {
+  font-size: 16px;
+  margin: 0 0 0 6px;
+}
+
+.table__drag {
   width: 11px;
   height: 12px;
+}
+
+.table__drag-button {
+  @include default-button;
+  cursor: grab;
+  transition: opacity 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    .table__drag {
+      opacity: 0.8;
+    }
+  }
+
+  &:focus {
+    .table__drag {
+      opacity: 0.8;
+    }
+  }
+
+  &:active {
+    .table__drag {
+      opacity: 0.6;
+    }
+  }
 }
 
 .table__gear {
   width: 15px;
   height: 15px;
-  fill: var(--light-navy);
-  transition: opacity 0.2s ease-in-out;
+  fill: var(--grayish-blue);
+  transition: fill opacity 0.2s ease-in-out;
 
   &:hover {
     opacity: 0.8;
@@ -58,10 +112,6 @@
   &:active {
     opacity: 0.6;
   }
-}
-
-.table__body-order {
-  margin: 0 0 0 5px;
 }
 
 .table__filter-text {
@@ -84,4 +134,72 @@
     transform: rotateY(180deg);
     margin: 0;
   }
+}
+
+.table__multipoint {
+  width: 3px;
+  height: 13px;
+  fill: var(--grayish-blue);
+  vertical-align: middle;
+}
+
+.table__multipoint-button {
+  @include default-button;
+  position: relative;
+  transition: opacity 0.2s ease-in-out;
+  top: 0;
+  right: 4px;
+  width: 10px;
+  text-align: left;
+
+  &--active {
+    .table__multipoint {
+      fill: var(--light-navy);
+    }
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.table__delete-button {
+  @include default-button;
+  position: absolute;
+  top: 20px;
+  left: -4px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--white);
+  box-shadow: $box-shadow-button;
+  transition: opacity 0.2s ease-in-out;
+  min-width: 179px;
+  text-align: left;
+  z-index: 10;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.4;
+  }
+}
+
+.table__delete-button-text {
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--red);
 }

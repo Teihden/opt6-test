@@ -7,19 +7,11 @@
     border-bottom: none;
   }
 
-  .table__head-cell {
-    border: 1px solid var(--light-gray);
-    font-weight: 600;
-    padding: 14px 8px;
-  }
-
   .dt-button-down-arrow {
     display: none;
   }
 
   .sorting_asc {
-    cursor: auto;
-
     &::before,
     &::after {
       display: none;
@@ -33,6 +25,12 @@
     background: transparent;
     user-select: none;
     font-family: inherit;
+
+    &[aria-expanded="true"] {
+      .table__gear {
+        fill: var(--light-navy);
+      }
+    }
   }
 
   .dt-buttons {
@@ -45,7 +43,7 @@
     width: max-content;
     padding: 6px 8px 6px 11px;
     border-radius: 5px;
-    box-shadow: $box-shadow-filter;
+    box-shadow: $box-shadow-button;
     background-color: var(--white);
     margin: 0;
   }
@@ -54,7 +52,7 @@
     width: max-content;
     padding: 6px 0;
     border-radius: 5px;
-    box-shadow: $box-shadow-filter;
+    box-shadow: $box-shadow-button;
     margin: 0;
 
     div[role="menu"] {
@@ -79,7 +77,6 @@
       height: 14px;
       border-radius: 3px;
       border: solid 1px var(--grayish-blue);
-      // margin: 0 0 0 0;
     }
 
     &.dt-button-active::after {
@@ -112,3 +109,16 @@
   margin-left: -2px;
 }
 
+.DTCR_clonedTable {
+  cursor: grabbing;
+
+  .sorting_asc {
+    cursor: grabbing !important;
+
+    &::before,
+    &::after {
+      display: none !important;
+
+    }
+  }
+}

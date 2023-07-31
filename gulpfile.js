@@ -39,10 +39,7 @@ function compileScss() {
     .pipe(sass({
       outputStyle: 'compressed', // compressed | expanded
     }))
-    .pipe(rename((path) => {
-      // eslint-disable-next-line no-param-reassign
-      path.extname = '.min.css';
-    }))
+    .pipe(rename((path) => ({ ...path, extname: '.min.css' })))
     .pipe(gulp.dest('build/css/', { sourcemaps: '.' }))
     .pipe(browser.stream());
 }
@@ -96,6 +93,7 @@ function optimizeJS() {
   return gulp.src('src/js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(terser())
+    // .pipe(rename((path) => ({ ...path, extname: '.min.js' })))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('build/js'))
     .pipe(browser.stream());
@@ -128,13 +126,15 @@ function copyImages() {
 }
 
 function copyMisc(cb) {
-  gulp.src(['src/favicon.ico', 'src/site.webmanifest'])
-    .pipe(gulp.dest('build/'))
-    .pipe(browser.stream());
+  gulp.src([
+    'src/favicon.ico',
+    'src/site.webmanifest',
+    'src/apple-touch-icon.png',
+  ])
+    .pipe(gulp.dest('build/'));
 
-  gulp.src(['src/vendor/**'])
-    .pipe(gulp.dest('build/vendor'))
-    .pipe(browser.stream());
+  gulp.src(['src/vendor/**/*.min.{css,js}'])
+    .pipe(gulp.dest('build/vendor/'));
 
   gulp.src('src/fonts/**/*')
     .pipe(gulp.dest('build/fonts/'))
