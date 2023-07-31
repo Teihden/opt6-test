@@ -1,22 +1,22 @@
 import { initColResizable, removeColResizable } from './colresizable.js';
 import { createDeleteButton } from './delete-button.js';
 
-const POPOVER_TITLE = `<span class="table__filter-text table__filter-text--main">Отображение столбцов</span>
-<svg class="table__filter-breadcrumbs table__filter-breadcrumbs--main"><use href="img/icons/sprite.svg#breadcrumbs"/></svg>`;
+const POPOVER_TITLE = `<span class="table-data__filter-text table-data__filter-text--main">Отображение столбцов</span>
+<svg class="table-data__filter-breadcrumbs table-data__filter-breadcrumbs--main"><use href="img/icons/sprite.svg#breadcrumbs"/></svg>`;
 
-const POPOVER_TEXT = `<span class="table__filter-text">Отображение столбцов</span>
-<svg class="table__filter-breadcrumbs"><use href="img/icons/sprite.svg#breadcrumbs"/></svg>`;
+const POPOVER_TEXT = `<span class="table-data__filter-text">Отображение столбцов</span>
+<svg class="table-data__filter-breadcrumbs"><use href="img/icons/sprite.svg#breadcrumbs"/></svg>`;
 
-const MULTIPOINT_BUTTON = `<div class="table__container-cell table__container-cell--multipoint">
-<button class="table__multipoint-button" type="button">
-<svg class="table__multipoint"><use href="img/icons/sprite.svg#multipoint"></use></svg>
+const MULTIPOINT_BUTTON = `<div class="table-data__container-cell table-data__container-cell--multipoint">
+<button class="table-data__multipoint-button" type="button">
+<svg class="table-data__multipoint"><use href="img/icons/sprite.svg#multipoint"></use></svg>
 <span class="visually-hidden">Удалить строку</span></button></div>`;
 
-// const ORDER = (index) => `<div class="table__container-cell">
-// <button class="table__drag" type="button">
-// <svg class="table__hamburger">
+// const ORDER = (index) => `<div class="table-data__container-cell">
+// <button class="table-data__drag" type="button">
+// <svg class="table-data__hamburger">
 // <use href="img/icons/sprite.svg#hamburger"></use></svg>
-// <span class="table__body-order">${index}</span></button></div>`;
+// <span class="table-data__body-order">${index}</span></button></div>`;
 
 const initDatatable = (table) => {
   const dataTable = table.DataTable({
@@ -30,7 +30,7 @@ const initDatatable = (table) => {
       fixedColumnsLeft: 1,
     },
     rowReorder: {
-      selector: '.table__drag-button',
+      selector: '.table-data__drag-button',
       dataSrc: 0,
     },
     columnDefs: [
@@ -48,10 +48,10 @@ const initDatatable = (table) => {
     dom: 'Bfrtip',
     buttons: [{
       extend: 'collection',
-      text: '<svg class="table__gear"><use href="img/icons/sprite.svg#gear"/></svg>',
+      text: '<svg class="table-data__gear"><use href="img/icons/sprite.svg#gear"/></svg>',
       background: false,
       align: 'button-right',
-      className: 'table__filter',
+      className: 'table-data__filter',
       buttons: [
         {
           popoverTitle: POPOVER_TITLE,
@@ -77,7 +77,7 @@ const initDatatable = (table) => {
     setTimeout(() => initColResizable(table));
   });
 
-  dataTable.on('click', '.table__multipoint-button', (evt) => {
+  dataTable.on('click', '.table-data__multipoint-button', (evt) => {
     evt.preventDefault();
     createDeleteButton(evt, dataTable);
   });

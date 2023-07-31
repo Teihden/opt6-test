@@ -5,119 +5,66 @@ section.table
         use(href="img/icons/sprite.svg#plus")
       span.new-row-button__text Добавить строку
   .table__container#table-container
-    table.table__data.nowrap#table
-      thead.table__head
+    table.table__data.table-data.nowrap#table-data
+      thead.table-data__head
         tr
-          th.table__head-cell Номер
-          th.table__head-cell Действие
-          th.table__head-cell Наименование единицы
-          th.table__head-cell Цена
-          th.table__head-cell Кол-во
-          th.table__head-cell Цена доставки, руб
-          th.table__head-cell Max грузоподъемность, кг
-          th.table__head-cell Название товара
-          th.table__head-cell Итого
+          th.table-data__head-cell Номер
+          th.table-data__head-cell Действие
+          th.table-data__head-cell Наименование единицы
+          th.table-data__head-cell Цена
+          th.table-data__head-cell Кол-во
+          th.table-data__head-cell Цена доставки, руб
+          th.table-data__head-cell Max грузоподъемность, кг
+          th.table-data__head-cell Название товара
+          th.table-data__head-cell Итого
       tbody
         tr
-          td.table__body-cell
-            .table__container-cell
-              button.table__drag-button(type="button")
-                svg.table__drag
+          td.table-data__body-cell
+            .table-data__container-cell
+              button.table-data__drag-button(type="button")
+                svg.table-data__drag
                   use(href="img/icons/sprite.svg#hamburger")
-                span.table__body-order 1
-          td.table__body-cell.table__body-cell--action(data-label="Действие")
-          td.table__body-cell(data-label="Наименование единицы")
-            .table__container-cell
+                span.table-data__body-order 1
+          td.table-data__body-cell.table-data__body-cell--action(data-label="Действие")
+          td.table-data__body-cell(data-label="Наименование единицы")
+            .table-data__container-cell
               select(name="name")
                 option Мраморный щебень фр. 2-5 мм, 25кг
                 option Мраморный щебень фр. 2-5 мм, 25кг (белый)
                 option Мраморный щебень фр. 2-5 мм, 25кг (вайт)
                 option Мраморный щебень фр. 2-5 мм, 25кг, возврат
                 option Мраморный щебень фр. 2-5 мм, 1т
-          td.table__body-cell(data-label="Цена")
-            //- .table__container-cell
-            //-   button.table__delete-button(type="button")
-            //-     span.table__delete-button-text Удалить
-          td.table__body-cell(data-label="Кол-во")
-            .table__container-cell
-              input(type="text" name="quantity")
-          td.table__body-cell(data-label="Цена доставки, руб")
-            .table__container-cell
-          td.table__body-cell(data-label="Max грузоподъемность, кг")
-            .table__container-cell
-          td.table__body-cell(data-label="Название товара")
-            .table__container-cell
-          td.table__body-cell(data-label="Итого")
-            .table__container-cell
-        tr
-          td.table__body-cell
-            .table__container-cell
-              button.table__drag-button(type="button")
-                svg.table__drag
-                  use(href="img/icons/sprite.svg#hamburger")
-                span.table__body-order 2
-          td.table__body-cell.table__body-cell--action(data-label="Действие")
-          td.table__body-cell(data-label="Наименование единицы")
-            .table__container-cell
-              select(name="name")
-                option Мраморный щебень фр. 2-5 мм, 25кг
-                option Мраморный щебень фр. 2-5 мм, 25кг (белый)
-                option Мраморный щебень фр. 2-5 мм, 25кг (вайт)
-                option Мраморный щебень фр. 2-5 мм, 25кг, возврат
-                option Мраморный щебень фр. 2-5 мм, 1т
-          td.table__body-cell(data-label="Цена")
-            .table__container-cell
-          td.table__body-cell(data-label="Кол-во")
-            .table__container-cell
-              input(type="text" name="quantity")
-          td.table__body-cell(data-label="Цена доставки, руб")
-            .table__container-cell
-          td.table__body-cell(data-label="Max грузоподъемность, кг")
-            .table__container-cell
-          td.table__body-cell(data-label="Название товара")
-            .table__container-cell
-          td.table__body-cell(data-label="Итого")
-            .table__container-cell
-        tr
-          td.table__body-cell
-            .table__container-cell
-              button.table__drag-button(type="button")
-                svg.table__drag
-                  use(href="img/icons/sprite.svg#hamburger")
-                span.table__body-order 3
-          td.table__body-cell.table__body-cell--action(data-label="Действие")
-          td.table__body-cell(data-label="Наименование единицы")
-            .table__container-cell
-              select(name="name")
-                option Мраморный щебень фр. 2-5 мм, 25кг
-                option Мраморный щебень фр. 2-5 мм, 25кг (белый)
-                option Мраморный щебень фр. 2-5 мм, 25кг (вайт)
-                option Мраморный щебень фр. 2-5 мм, 25кг, возврат
-                option Мраморный щебень фр. 2-5 мм, 1т
-          td.table__body-cell(data-label="Цена")
-            .table__container-cell
-          td.table__body-cell(data-label="Кол-во")
-            .table__container-cell
-              input(type="text" name="quantity")
-          td.table__body-cell(data-label="Цена доставки, руб")
-            .table__container-cell
-          td.table__body-cell(data-label="Max грузоподъемность, кг")
-            .table__container-cell
-          td.table__body-cell(data-label="Название товара")
-            .table__container-cell
-          td.table__body-cell(data-label="Итого")
-            .table__container-cell
+          td.table-data__body-cell(data-label="Цена")
+            .table-data__container-cell
+              input.table-data__input(type="text" name="price" value="1231" placeholder="Цена")
+          td.table-data__body-cell(data-label="Кол-во")
+            .table-data__container-cell
+              input.table-data__input(type="text" name="quantity" value="12" placeholder="Кол-во")
+          td.table-data__body-cell(data-label="Цена доставки, руб")
+            .table-data__container-cell
+              input.table-data__input(type="text" name="delivery" value="1500" placeholder="Цена доставки, руб")
+          td.table-data__body-cell(data-label="Max грузоподъемность, кг")
+            .table-data__container-cell
+              input.table-data__input(type="text" name="load" value="100" placeholder="Max грузоподъемность, кг")
+          td.table-data__body-cell(data-label="Название товара")
+            .table-data__container-cell
+              input.table-data__input(type="text" name="load" value="Мраморный щебень" placeholder="Название товара")
+          td.table-data__body-cell(data-label="Итого")
+            .table-data__container-cell
+              input.table-data__input(type="text" name="load" value="" placeholder="0")
 
-        //- tfoot
-        //-   tr
-        //-     th(colspan="8") Сумма:
-        //-     td.table__body-cell 0
-        //-   tr
-        //-     th(colspan="8") Кол-во:
-        //-     td.table__body-cell 0
-        //-   tr
-        //-     th(colspan="8") Общий вес:
-        //-     td.table__body-cell 0
-        //-   tr
-        //-     th(colspan="8") Общая сумма:
-        //-     td.table__body-cell 0
+    table.table__result.table-result.nowrap#table-result
+      tbody.table-result__body
+        tr.table-result__row
+          th.table-result__head-cell Сумма:
+          td.table-result__body-cell 152 212 руб
+        tr.table-result__row
+          th.table-result__head-cell Кол-во:
+          td.table-result__body-cell 24 шт
+        tr.table-result__row
+          th.table-result__head-cell Общий вес:
+          td.table-result__body-cell 2 322 кг
+      tfoot.table-result__footer
+        tr.table-result__row
+          th.table-result__head-cell.table-result__head-cell--footer Общая сумма:
+          td.table-result__body-cell.table-result__body-cell--footer 152 212 руб
