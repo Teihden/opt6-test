@@ -5,7 +5,6 @@ const DELETE_BUTTON = `<button class="data-table__delete-button" type="button">
 <span class="data-table__delete-button-text">Удалить</span></button>`;
 
 const closeDeleteButton = (deleteButton, target) => {
-  console.log(target);
   deleteButton.fadeTo('fast', 0, () => deleteButton.remove());
   target.removeClass('data-table__multipoint-button--active');
   $(document).off();

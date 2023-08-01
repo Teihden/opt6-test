@@ -6,52 +6,6 @@ section.table
       span.new-row-button__text Добавить строку
   .table__container#table-container
     table.table__data.data-table.nowrap#data-table
-      thead.data-table__head
-        tr
-          th.data-table__head-cell Номер
-          th.data-table__head-cell Действие
-          th.data-table__head-cell Наименование единицы
-          th.data-table__head-cell Цена
-          th.data-table__head-cell Кол-во
-          th.data-table__head-cell Цена доставки, руб
-          th.data-table__head-cell Max грузоподъемность, кг
-          th.data-table__head-cell Название товара
-          th.data-table__head-cell Итого
-      tbody
-        tr
-          td.data-table__body-cell
-            .data-table__container-cell
-              button.data-table__drag-button(type="button")
-                svg.data-table__drag
-                  use(href="img/icons/sprite.svg#hamburger")
-                span.data-table__body-order 1
-          td.data-table__body-cell.data-table__body-cell--action(data-label="Действие")
-          td.data-table__body-cell(data-label="Наименование единицы")
-            .data-table__container-cell
-              select(name="name")
-                option Мраморный щебень фр. 2-5 мм, 25кг
-                option Мраморный щебень фр. 2-5 мм, 25кг (белый)
-                option Мраморный щебень фр. 2-5 мм, 25кг (вайт)
-                option Мраморный щебень фр. 2-5 мм, 25кг, возврат
-                option Мраморный щебень фр. 2-5 мм, 1т
-          td.data-table__body-cell(data-label="Цена")
-            .data-table__container-cell
-              input.data-table__input(type="text" name="price" value="1231" placeholder="Цена")
-          td.data-table__body-cell(data-label="Кол-во")
-            .data-table__container-cell
-              input.data-table__input(type="text" name="quantity" value="12" placeholder="Кол-во")
-          td.data-table__body-cell(data-label="Цена доставки, руб")
-            .data-table__container-cell
-              input.data-table__input(type="text" name="delivery" value="1500" placeholder="Цена доставки, руб")
-          td.data-table__body-cell(data-label="Max грузоподъемность, кг")
-            .data-table__container-cell
-              input.data-table__input(type="text" name="load" value="100" placeholder="Max грузоподъемность, кг")
-          td.data-table__body-cell(data-label="Название товара")
-            .data-table__container-cell
-              input.data-table__input(type="text" name="load" value="Мраморный щебень" placeholder="Название товара")
-          td.data-table__body-cell(data-label="Итого")
-            .data-table__container-cell
-              input.data-table__input(type="text" name="load" value="" placeholder="0")
 
     table.table__result.result-table.nowrap#result-table
       tbody.result-table__body

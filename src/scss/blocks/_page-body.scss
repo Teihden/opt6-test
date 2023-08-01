@@ -3,8 +3,9 @@
   min-height: 100%;
   min-width: 100%;
   margin: 0;
+  padding: 16px 10px;
 
-  background: var(--mist);
+  background-color: var(--mist);
   color: var(--black);
 
   font-weight: 400;
@@ -23,7 +24,11 @@
     transition: width 0.3s linear;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: $tablet-width) {
+    padding: 25px;
+  }
+
+  @media (min-width: $desktop-width) {
     &::before {
       width: 229px;
     }

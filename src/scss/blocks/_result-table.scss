@@ -1,5 +1,10 @@
 .result-table {
-  width: 308px;
+  width: 100%;
+  display: block;
+
+  @media (min-width: $tablet-width) {
+    width: 304px;
+  }
 }
 
 .result-table__body {
@@ -11,10 +16,15 @@
 
 .result-table__head-cell {
   padding-inline: 15px;
-  font-size: 14px;
-  line-height: 15px;
+  font-size: 16px;
+  line-height: 16px;
   font-weight: 400;
   color: var(--suva-grey);
+
+  @media (min-width: $tablet-width) {
+    font-size: 14px;
+    line-height: 15px;
+  }
 
   &--footer {
     color: var(--black);
@@ -23,9 +33,14 @@
 
 .result-table__body-cell {
   padding-inline: 15px;
-  font-size: 14px;
-  line-height: 15px;
+  font-size: 16px;
+  line-height: 16px;
   text-align: right;
+
+  @media (min-width: $tablet-width) {
+    font-size: 14px;
+    line-height: 15px;
+  }
 
   &--footer {
     font-weight: 600;

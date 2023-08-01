@@ -7,6 +7,7 @@ $light-gray: #eeeff1;
 $dark-gray: #bcbcbc;
 $suva-grey: #8f8f8f;
 $light-navy: #1253a2;
+$chinese-silver: #cccccc;
 $blue: #2f8cff;
 $dark-blue: #3261ff;
 $grayish-blue: #a6b7d4;
@@ -21,3 +22,7 @@ $box-shadow-button: 0 0 3px 0 #000, inset 0 1px 2px 0 rgba(255, 255, 255, 0.5);
 
 // Widths
 $min-container-width: 360px;
+
+// Breakpoints
+$tablet-width: 800px;
+$desktop-width: 1200px;

@@ -1,9 +1,9 @@
 .table {
-  padding: 0 25px;
   transition: margin 0.3s linear;
 
-  @media (min-width: 1000px) {
+  @media (min-width: $desktop-width) {
     margin: 0 0 0 229px;
+    background: var(--white);
   }
 }
 
@@ -17,12 +17,23 @@
 }
 
 .table__container {
-  border-radius: 10px;
-  box-shadow: $box-shadow;
-  border: solid 1px var(--light-gray);
-  background-color: var(--white);
+  border-radius: none;
+  box-shadow: none;
+  border: none;
+  background-color: var(--mist);
+
+  @media (min-width: $tablet-width) {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: $box-shadow;
+    border: 1px solid var(--light-gray);
+  }
 }
 
 .table__result {
-  margin: 13px 12px 22px auto;
+  margin: 8px 0 0;
+
+  @media (min-width: $tablet-width) {
+    margin: 15px 14px 22px auto;
+  }
 }

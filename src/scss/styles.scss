@@ -4,11 +4,11 @@
 @import "global/fonts";
 @import "global/mixins";
 @import "global/global";
+@import "plugins/datatables";
+@import "plugins/colresizable";
 @import "blocks/page-body";
 @import "blocks/page-header";
 @import "blocks/table";
 @import "blocks/new-row-button";
-@import "blocks/datatable";
-@import "blocks/colresizable";
 @import "blocks/data-table";
 @import "blocks/result-table";

@@ -8,4 +8,13 @@ const handleEscapeKey = (callback, evt) => {
   }
 };
 
-export { handleEscapeKey };
+const debounce = (callback, timeoutDelay = 500) => {
+  let timeoutId;
+
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
+export { handleEscapeKey, debounce };

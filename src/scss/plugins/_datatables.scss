@@ -73,7 +73,7 @@
     font-family: inherit;
 
     &[aria-expanded="true"] {
-      .table__gear {
+      .data-table__gear {
         fill: var(--light-navy);
       }
     }
