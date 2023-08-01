@@ -71,12 +71,6 @@
     background: transparent;
     user-select: none;
     font-family: inherit;
-
-    &[aria-expanded="true"] {
-      .data-table__gear {
-        fill: var(--light-navy);
-      }
-    }
   }
 
   .dt-buttons {

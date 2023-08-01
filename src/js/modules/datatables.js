@@ -1,28 +1,28 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-shadow */
-/* eslint-disable object-shorthand */
-/* eslint-disable no-undef */
-/* eslint-disable semi */
 import { initColResizable, removeColResizable } from './colresizable.js';
-import { createDeleteButton } from './delete-button.js';
+import { createDeleteButton } from './delete-row.js';
+import { onNewRowButtonClick } from './add-row.js';
 import { debounce } from './utils.js';
-import { data } from './data.js';
+import { dataArray } from './dataArray.js';
 
-const POPOVER_TITLE = `<span class="data-table__filter-text data-table__filter-text--main">Отображение столбцов</span>
-<svg class="data-table__filter-breadcrumbs data-table__filter-breadcrumbs--main"><use href="img/icons/sprite.svg#breadcrumbs"/></svg>`;
+const { $ } = window;
 
-const POPOVER_TEXT = `<span class="data-table__filter-text">Отображение столбцов</span>
-<svg class="data-table__filter-breadcrumbs"><use href="img/icons/sprite.svg#breadcrumbs"/></svg>`;
+const POPOVER_TITLE = `<span class="filter-button__text filter-button__text--main">Отображение столбцов</span>
+<svg class="filter-button__breadcrumbs filter-button__breadcrumbs--main"><use href="img/icons/sprite.svg#breadcrumbs"/></svg>`;
 
-const MULTIPOINT_BUTTON = `<button class="data-table__multipoint-button" type="button">
-<svg class="data-table__multipoint"><use href="img/icons/sprite.svg#multipoint"></use></svg>
+const POPOVER_TEXT = `<span class="filter-button__text">Отображение столбцов</span>
+<svg class="filter-button__breadcrumbs"><use href="img/icons/sprite.svg#breadcrumbs"/></svg>`;
+
+const FILTER_GEAR = '<svg class="filter-button__gear"><use href="img/icons/sprite.svg#gear"/></svg>';
+
+const MULTIPOINT_BUTTON = `<button class="data-table__multipoint-button multipoint-button" type="button">
+<svg class="multipoint-button__multipoint"><use href="img/icons/sprite.svg#multipoint"></use></svg>
 <span class="visually-hidden">Удалить строку</span></button>`;
 
-const ORDER = (index) => `<button class="data-table__drag-button" type="button">
-<svg class="data-table__drag">
-<use href="img/icons/sprite.svg#hamburger"></use></svg>
-<span class="data-table__order">${index}</span></button>`;
+const ORDER = (index) => `<button class="data-table__drag-button drag-button" type="button">
+<svg class="drag-button__handler"><use href="img/icons/sprite.svg#hamburger"></use></svg>
+<span class="drag-button__order">${index}</span></button>`;
 
 const INPUT = (value, type, name, placeholder) => `<input class="data-table__input" type="${type}"
 name="${name}" value="${value}" placeholder="${placeholder}">`;
@@ -37,15 +37,16 @@ const SELECT = `<select class="data-table__select" name="unit-name">
 
 const initDatatable = (table) => {
   const dataTable = table.DataTable({
-    data: data,
+    data: dataArray,
     paging: false,
     searching: false,
     ordering: true,
     info: false,
     autoWidth: true,
-    colReorder: {
-      fixedColumnsLeft: 1,
-    },
+    // colReorder: {
+    //   fixedColumnsLeft: 1,
+    // },
+    colReorder: true,
     rowReorder: {
       selector: '.data-table__drag-button',
       dataSrc: 'order',
@@ -82,14 +83,16 @@ const initDatatable = (table) => {
         name: 'unitName',
         createdCell: (td, cellData, rowData, row, col) => {
           const cell = $(td);
-          const select = $(SELECT);
 
-          select.val(cellData);
           cell.attr('data-label', 'Наименование единицы');
           cell.addClass('data-table__body-cell');
-          cell.append(select)
         },
-        render: () => null,
+        render: (data, type, row, meta) => {
+          const select = $(SELECT);
+          select.find(`option[value="${data}"]`).attr('selected', 'selected');
+
+          return select[0].outerHTML;
+        },
       },
       {
         targets: 3,
@@ -121,7 +124,7 @@ const initDatatable = (table) => {
       },
       {
         targets: 5,
-        data: 'quantity',
+        data: 'delivery',
         orderable: false,
         title: 'Цена доставки, руб',
         name: 'delivery',
@@ -163,7 +166,7 @@ const initDatatable = (table) => {
       },
       {
         targets: 8,
-        data: null,
+        data: 'total',
         orderable: false,
         title: 'Итого',
         name: 'load',
@@ -180,10 +183,10 @@ const initDatatable = (table) => {
     dom: 'Bfrtip',
     buttons: [{
       extend: 'collection',
-      text: '<svg class="data-table__gear"><use href="img/icons/sprite.svg#gear"/></svg>',
+      text: FILTER_GEAR,
       background: false,
       align: 'button-right',
-      className: 'data-table__filter',
+      className: 'data-table__filter-button filter-button',
       buttons: [
         {
           popoverTitle: POPOVER_TITLE,
@@ -212,15 +215,20 @@ const initDatatable = (table) => {
     setTimeout(() => initColResizable(table));
   });
 
+  // Отображение кнопки удалить
   dataTable.on('click', '.data-table__multipoint-button', (evt) => {
     evt.preventDefault();
     createDeleteButton(evt, dataTable);
   });
 
+  // Создание новой строки в таблице
+  $('.new-row-button').on('click', () => onNewRowButtonClick(dataTable));
+
+  // Изменение ширины таблицы в соответствии с viewport
   const onWindowResize = debounce(() => {
     table.css('width', '100%');
     dataTable.columns.adjust().draw();
-  }, 250);
+  }, 100);
 
   window.addEventListener('resize', onWindowResize);
 };

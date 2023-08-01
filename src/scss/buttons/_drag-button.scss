@@ -1,0 +1,37 @@
+.drag-button {
+  @include default-button;
+  cursor: grab;
+  transition: opacity 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    .data-table__drag {
+      opacity: 0.8;
+    }
+  }
+
+  &:focus {
+    .data-table__drag {
+      opacity: 0.8;
+    }
+  }
+
+  &:active {
+    .data-table__drag {
+      opacity: 0.6;
+    }
+  }
+}
+
+.drag-button__order {
+  font-size: 16px;
+  margin: 0 0 0 6px;
+}
+
+.drag-button__handler {
+  width: 11px;
+  height: 12px;
+}
+
+

@@ -80,157 +80,15 @@
   }
 }
 
-.data-table__order {
-  font-size: 16px;
-  margin: 0 0 0 6px;
-}
-
-.data-table__drag {
-  width: 11px;
-  height: 12px;
-}
-
 .data-table__drag-button {
-  @include default-button;
-  cursor: grab;
-  transition: opacity 0.2s ease-in-out;
-  display: flex;
-  align-items: center;
   margin: 0 0 0 3px;
-
-  &:hover {
-    .data-table__drag {
-      opacity: 0.8;
-    }
-  }
-
-  &:focus {
-    .data-table__drag {
-      opacity: 0.8;
-    }
-  }
-
-  &:active {
-    .data-table__drag {
-      opacity: 0.6;
-    }
-  }
-}
-
-.data-table__gear {
-  width: 15px;
-  height: 15px;
-  fill: var(--grayish-blue);
-  transition: fill, opacity 0.2s ease-in-out;
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:focus {
-    opacity: 0.8;
-  }
-
-  &:active {
-    opacity: 0.6;
-  }
-}
-
-.data-table__filter {
-  display: none !important;
-
-  @media (min-width: $tablet-width) {
-    display: inline-block !important;
-  }
-}
-
-.data-table__filter-text {
-  font-size: 14px;
-  color: var(--dark);
-  line-height: 15px;
-
-
-  &--main {
-    font-weight: 600;
-  }
-}
-
-.data-table__filter-breadcrumbs {
-  width: 5px;
-  height: 10px;
-  margin: 0 0 0 9px;
-
-  &--main {
-    transform: rotateY(180deg);
-    margin: 0;
-  }
-}
-
-.data-table__multipoint {
-  width: 3px;
-  height: 13px;
-  fill: var(--grayish-blue);
-  vertical-align: middle;
-}
-
-.data-table__multipoint-button {
-  @include default-button;
-  transition: opacity 0.2s ease-in-out;
-  width: 10px;
-  text-align: left;
-  margin: -2px 0 -2px 0;
-
-  &--active {
-    .data-table__multipoint {
-      fill: var(--light-navy);
-      margin: 1px 0 0 0;
-    }
-  }
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:focus {
-    opacity: 0.8;
-  }
-
-  &:active {
-    opacity: 0.6;
-  }
 }
 
 .data-table__delete-button {
-  @include default-button;
   position: absolute;
   bottom: -18px;
   left: 10px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background-color: var(--white);
-  box-shadow: $box-shadow-button;
-  transition: opacity 0.2s ease-in-out;
-  min-width: 179px;
-  text-align: left;
   z-index: 10;
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:focus {
-    opacity: 0.8;
-  }
-
-  &:active {
-    opacity: 0.4;
-  }
-}
-
-.data-table__delete-button-text {
-  font-family: inherit;
-  font-size: 14px;
-  color: var(--red);
 }
 
 .data-table__input {
