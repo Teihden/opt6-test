@@ -192,7 +192,13 @@ const initDatatable = (table) => {
     });
   });
 
-  dataTable.on('column-visibility', () => resizeTable);
+  dataTable.on('column-visibility', () => {
+    table.css('width', '100%');
+    dataTable.columns.adjust().draw();
+
+    removeColResizable(table);
+    setTimeout(() => initColResizable(table));
+  });
 
   // Отображение кнопки удалить
   dataTable.on('click', '.data-table__multipoint-button', (evt) => {
