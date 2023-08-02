@@ -218,6 +218,10 @@ const initDatatable = (table) => {
     const tr = target.closest('tr');
     const index = dataTable.row(tr).index();
 
+    const cell = dataTable.cell(target.closest('td'));
+    cell.data(value);
+    initCustomSelect();
+
     // Функция для отправки данных на сервер
     $.post('example.php', { [name]: value, index })
       .done(() => { })
