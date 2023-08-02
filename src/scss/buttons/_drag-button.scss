@@ -1,9 +1,12 @@
 .drag-button {
   @include default-button;
-  cursor: grab;
-  transition: opacity 0.2s ease-in-out;
+
   display: flex;
   align-items: center;
+
+  cursor: grab;
+
+  transition: opacity 0.2s ease-in-out;
 
   &:hover {
     .data-table__drag {
@@ -25,8 +28,8 @@
 }
 
 .drag-button__order {
-  font-size: 16px;
   margin: 0 0 0 6px;
+  font-size: 16px;
 }
 
 .drag-button__handler {

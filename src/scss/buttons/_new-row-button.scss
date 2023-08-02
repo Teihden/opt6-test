@@ -1,11 +1,16 @@
 .new-row-button {
   @include default-button;
+
+  display: flex;
+  align-items: center;
+
   padding: 10px 16px 10px 10px;
   border-radius: 5px;
+
   background-color: var(--blue);
-  display: flex;
+
   column-gap: 7px;
-  align-items: center;
+
   transition: opacity 0.2s ease-in-out;
 
   &:hover {
@@ -27,7 +32,7 @@
 }
 
 .new-row-button__text {
-  font-size: 14px;
   color: var(--white);
+  font-size: 14px;
   line-height: 15px;
 }

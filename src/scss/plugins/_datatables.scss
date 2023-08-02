@@ -1,23 +1,23 @@
-/* stylelint-disable plugin/selector-bem-pattern*/
+/* stylelint-disable plugin/selector-bem-pattern */
 
 // DataTables overridden CSS
 // colReorder styles
 .DTCR_pointer {
-  background-color: var(--light-gray) !important;
   margin-left: -2px;
+  background-color: var(--light-gray) !important;
 }
 
 .DTCR_clonedTable {
-  cursor: grabbing !important;
   border: 1px solid var(--light-gray) !important;
-
-  * {
-    cursor: grabbing !important;
-  }
+  cursor: grabbing !important;
 
   &::before,
   &::after {
     display: none !important;
+  }
+
+  * {
+    cursor: grabbing !important;
   }
 }
 
@@ -37,8 +37,8 @@
 
 .dt-rowReorder-moving {
   border-radius: 5px !important;
-  outline: 2px dashed var(--grayish-blue) !important;
   background-color: var(--mist) !important;
+  outline: 2px dashed var(--grayish-blue) !important;
 
   * {
     opacity: 0;
@@ -57,7 +57,6 @@
   }
 
   .sorting_asc {
-
     &::before,
     &::after {
       display: none;
@@ -65,81 +64,95 @@
   }
 
   .buttons-collection {
+    margin: 0;
     padding: 0;
     border: 0;
-    margin: 0;
+
     background: transparent;
-    user-select: none;
+
     font-family: inherit;
+
+    user-select: none;
   }
 
   .dt-buttons {
     float: none;
-    text-align: right;
     margin: 7px 14px 0 auto;
+    text-align: right;
   }
 
   .dtb-b1 {
     width: max-content;
+    margin: 0;
     padding: 6px 8px 6px 11px;
     border-radius: 5px;
-    box-shadow: $box-shadow-button;
+
     background-color: var(--white);
-    margin: 0;
+    box-shadow: $box-shadow-button;
   }
 
   .dt-button-collection:not(.dtb-b1) {
     width: max-content;
+    margin: 0;
     padding: 6px 0;
     border-radius: 5px;
+
     box-shadow: $box-shadow-button;
-    margin: 0;
 
     div[role="menu"] {
       display: flex;
-      row-gap: 11px;
       flex-direction: column;
+      row-gap: 11px;
     }
   }
 
   .buttons-columnVisibility {
-    padding: 0 8px;
     display: flex;
-    column-gap: 4px;
-    font-size: 14px;
+
+    padding: 0 8px;
+
     color: var(--dark);
+
+    font-size: 14px;
     font-family: inherit;
 
+    column-gap: 4px;
+
     &::before {
-      display: block;
       content: '';
+      display: block;
+
       width: 13px;
       height: 14px;
-      border-radius: 3px;
       border: solid 1px var(--grayish-blue);
+      border-radius: 3px;
     }
 
     &.dt-button-active::after {
       content: '';
-      background-image: url("../img/general/tick.svg");
-      background-position: center;
-      background-repeat: no-repeat;
+      top: 10px;
+      left: 8px;
+
       width: 13px;
       height: 14px;
       border-radius: 3px;
+
       background-color: var(--dark-blue);
-      top: 10px;
-      left: 8px;
+      background-image: url("../img/general/tick.svg");
+      background-position: center;
+      background-repeat: no-repeat;
     }
   }
 
   .dt-button-collection-title {
     display: flex;
-    column-gap: 10px;
     flex-direction: row-reverse;
-    align-items: center;
     justify-content: start;
-    padding: 0 0 13px;
+    align-items: center;
+
     margin: 0 8px;
+    padding: 0 0 13px;
+
+    column-gap: 10px;
   }
 }

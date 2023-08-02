@@ -1,12 +1,16 @@
 .delete-button {
   @include default-button;
+
+  min-width: 179px;
   padding: 5px 10px;
   border-radius: 5px;
+
   background-color: var(--white);
   box-shadow: $box-shadow-button;
-  transition: opacity 0.2s ease-in-out;
-  min-width: 179px;
+
   text-align: left;
+
+  transition: opacity 0.2s ease-in-out;
 
   &:hover {
     opacity: 0.8;
@@ -22,7 +26,7 @@
 }
 
 .delete-button__text {
-  font-family: inherit;
-  font-size: 14px;
   color: var(--red);
+  font-size: 14px;
+  font-family: inherit;
 }

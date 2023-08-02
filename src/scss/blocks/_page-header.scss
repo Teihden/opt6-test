@@ -1,6 +1,6 @@
 .page-header {
+  margin: 0 0 25px;
   transition: margin 0.3s linear;
-  margin: 0 0 25px 0;
 
   @media (min-width: $desktop-width) {
     margin: 0 0 0 229px;
@@ -8,11 +8,12 @@
 }
 
 .page-header__heading {
-  font-size: 30px;
-  font-weight: 400;
-  margin: 0 0 25px;
-  line-height: 31px;
   width: 300px;
+  margin: 0 0 25px;
+
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 31px;
 
   @media (min-width: $tablet-width) {
     width: auto;
@@ -21,18 +22,19 @@
 
 .page-header__list {
   @include default-list;
+
   display: flex;
   gap: 0 20px;
-  margin: 0 0 26px 0;
+  margin: 0 0 26px;
 
   @media (min-width: $tablet-width) {
-    margin: 0 0 25px 0;
+    margin: 0 0 25px;
   }
 }
 
 .page-header__link {
-  font-weight: 600;
   color: var(--light-navy);
+  font-weight: 600;
   transition: opacity 0.2s ease-in-out;
 
   &:hover {

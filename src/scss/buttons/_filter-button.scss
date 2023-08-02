@@ -7,8 +7,8 @@
 }
 
 .filter-button__text {
-  font-size: 14px;
   color: var(--dark);
+  font-size: 14px;
   line-height: 15px;
 
 
@@ -23,15 +23,17 @@
   margin: 0 0 0 9px;
 
   &--main {
-    transform: rotateY(180deg);
     margin: 0;
+    transform: rotateY(180deg);
   }
 }
 
 .filter-button__gear {
   width: 15px;
   height: 15px;
+
   fill: var(--grayish-blue);
+
   transition: fill, opacity 0.2s ease-in-out;
 
   &:hover {

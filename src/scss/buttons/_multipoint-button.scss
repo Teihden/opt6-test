@@ -1,14 +1,17 @@
 .multipoint-button {
   @include default-button;
-  transition: opacity 0.2s ease-in-out;
+
   width: 10px;
+  margin: -2px 0;
+
   text-align: left;
-  margin: -2px 0 -2px 0;
+
+  transition: opacity 0.2s ease-in-out;
 
   &--active {
     .data-table__multipoint {
+      margin: 1px 0 0;
       fill: var(--light-navy);
-      margin: 1px 0 0 0;
     }
   }
 
@@ -26,8 +29,10 @@
 }
 
 .multipoint-button__multipoint {
+  vertical-align: middle;
+
   width: 3px;
   height: 13px;
+
   fill: var(--grayish-blue);
-  vertical-align: middle;
 }

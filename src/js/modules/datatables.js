@@ -1,10 +1,10 @@
-/* eslint-disable arrow-body-style */
 /* eslint-disable no-unused-vars */
 import { initColResizable, removeColResizable } from './colresizable.js';
 import { createDeleteButton } from './delete-row.js';
 import { onNewRowButtonClick } from './add-row.js';
 import { debounce } from './utils.js';
 import { dataArray } from './dataArray.js';
+import { initCustomSelect } from './custom-select.js';
 
 const { $ } = window;
 
@@ -27,13 +27,13 @@ const ORDER = (index) => `<button class="data-table__drag-button drag-button" ty
 const INPUT = (value, type, name, placeholder) => `<input class="data-table__input" type="${type}"
 name="${name}" value="${value}" placeholder="${placeholder}">`;
 
-const SELECT = `<select class="data-table__select" name="unit-name">
+const SELECT = `<div class="custom-select"><select class="custom-select__select" name="unit-name">
 <option value="Мраморный щебень фр. 2-5 мм, 25кг">Мраморный щебень фр. 2-5 мм, 25кг</option>
 <option value="Мраморный щебень фр. 2-5 мм, 25кг (белый)">Мраморный щебень фр. 2-5 мм, 25кг (белый)</option>
 <option value="Мраморный щебень фр. 2-5 мм, 25кг (вайт)">Мраморный щебень фр. 2-5 мм, 25кг (вайт)</option>
 <option value="Мраморный щебень фр. 2-5 мм, 25кг, возврат">Мраморный щебень фр. 2-5 мм, 25кг, возврат</option>
 <option value="Мраморный щебень фр. 2-5 мм, 1т">Мраморный щебень фр. 2-5 мм, 1т</option>
-</select>`;
+</select></div>`;
 
 const initDatatable = (table) => {
   const dataTable = table.DataTable({
@@ -43,9 +43,6 @@ const initDatatable = (table) => {
     ordering: true,
     info: false,
     autoWidth: true,
-    // colReorder: {
-    //   fixedColumnsLeft: 1,
-    // },
     colReorder: true,
     rowReorder: {
       selector: '.data-table__drag-button',
@@ -85,7 +82,7 @@ const initDatatable = (table) => {
           const cell = $(td);
 
           cell.attr('data-label', 'Наименование единицы');
-          cell.addClass('data-table__body-cell');
+          cell.addClass('data-table__body-cell data-table__body-cell--select');
         },
         render: (data, type, row, meta) => {
           const select = $(SELECT);
@@ -199,7 +196,8 @@ const initDatatable = (table) => {
     }],
     initComplete: () => {
       $('th', table).addClass('data-table__head-cell');
-      initColResizable(table)
+      initColResizable(table);
+      initCustomSelect();
     },
   });
 

@@ -6,15 +6,16 @@
 
 .data-table__head-cell {
   display: none;
-  border: 1px solid var(--light-gray) !important;
-  font-weight: 600;
+  overflow: hidden;
+
   padding: 14px 8px !important;
+  border: 1px solid var(--light-gray) !important;
+
+  font-weight: 600;
+  white-space: nowrap;
+
   cursor: grab;
   user-select: none;
-
-  overflow: hidden;
-  text-overflow: clip;
-  white-space: nowrap;
 
   @media (min-width: $tablet-width) {
     display: table-cell;
@@ -24,41 +25,46 @@
 .data-table__body-row {
   display: flex;
   flex-direction: column;
-  margin: 0 0 5px 0;
-  background-color: var(--white) !important;
-  border-radius: 10px;
-  box-shadow: $box-shadow;
-  border: 1px solid var(--light-gray);
+
+  margin: 0 0 5px;
   padding: 14px 4px 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 10px;
+
+  background-color: var(--white) !important;
+  box-shadow: $box-shadow;
 
   @media (min-width: $tablet-width) {
     display: table-row;
+
     margin: 0;
+    padding: 0;
+    border: none;
     border-radius: none;
+
     background-color: none;
     box-shadow: none;
-    border: none;
-    padding: 0;
   }
 }
 
 .data-table__body-cell {
-  padding: 0 10px 15px !important;
   overflow: hidden;
+
+  padding: 0 10px 15px !important;
+
   text-overflow: clip;
   white-space: nowrap;
 
-  @media (min-width: $tablet-width) {
-    padding: 5px 10px !important;
-  }
-
-  &:before {
-    display: block;
+  &::before {
     content: attr(data-label);
+    display: block;
+
+    margin: 0 0 5px;
+
+    color: var(--suva-grey);
+
     font-size: 10px;
     line-height: 11px;
-    color: var(--suva-grey);
-    margin: 0 0 5px 0;
 
     @media (min-width: $tablet-width) {
       display: none;
@@ -78,6 +84,14 @@
       display: table-cell;
     }
   }
+
+  @media (min-width: $tablet-width) {
+    padding: 5px 10px !important;
+  }
+
+  &--select {
+    overflow: unset !important;
+  }
 }
 
 .data-table__drag-button {
@@ -92,17 +106,19 @@
 }
 
 .data-table__input {
-  -webkit-appearance: textfield;
-  appearance: textfield;
   width: 100%;
-  height: 35px;
   max-width: 100%;
-  padding: 8px 15px 6px 14px;
-  border-radius: 5px;
+  height: 35px;
+  padding: 8px 0 6px 14px;
   border: solid 1px var(--chinese-silver);
-  font-family: inherit;
+  border-radius: 5px;
+
   font-size: 16px;
+  font-family: inherit;
   line-height: 16px;
+
+  appearance: textfield;
+  appearance: textfield;
 
   &::-webkit-outer-spin-button {
     appearance: none;
@@ -113,24 +129,12 @@
   }
 
   &::placeholder {
-    font-family: inherit;
-    font-size: 16px;
-    line-height: 16px;
     color: var(--black);
+
+    font-size: 16px;
+    font-family: inherit;
+    line-height: 16px;
+
     opacity: 0.3;
   }
-}
-
-.data-table__select {
-  appearance: none;
-  width: 100%;
-  height: 35px;
-  max-width: 100%;
-  padding: 8px 15px 7px 14px;
-  border-radius: 5px;
-  border: solid 1px var(--chinese-silver);
-  font-family: inherit;
-  font-size: 16px;
-  line-height: 16px;
-  background-color: var(--white);
 }
