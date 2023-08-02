@@ -13,20 +13,19 @@
 .custom-select__selected {
   max-width: 100%;
   height: 35px;
-  // padding: 8px 0 7px;
   border: solid 1px var(--chinese-silver);
   border-radius: 5px;
   background-color: var(--white);
   cursor: pointer;
   overflow: hidden;
   white-space: nowrap;
+}
 
-  .custom-select__selected-option {
-    padding: 8px 0 7px 14px;
-    overflow: hidden;
-    max-width: 100%;
-    display: block;
-  }
+.custom-select__selected-option {
+  padding: 8px 0 7px 14px;
+  overflow: hidden;
+  max-width: 100%;
+  display: block;
 }
 
 /* Контейнер c опциями */

@@ -25,7 +25,7 @@ const openSelect = (optionItemsContainer) => {
   $(document).on('keydown', (evt) => onDocumentKeydown(closeSelectCallback, evt));
 };
 
-const onSelectedOptionClick = (evt) => {
+const onSelectedOptionContainerClick = (evt) => {
   evt.preventDefault();
   evt.stopPropagation();
 
@@ -39,17 +39,18 @@ const onSelectedOptionClick = (evt) => {
   }
 };
 
-const onSelectOption = (evt) => {
+const onSelectOptionClick = (evt) => {
   /* При нажатии на элемент обновляется исходное поле выбора,
     и выбранный элемент: */
   const targetOption = $(evt.currentTarget);
-  const parentSelect = targetOption.parents('.custom-select').find('.custom-select__select')[0];
-  const selectedOptionContainer = targetOption.parent().prev();
+  const parentSelect = targetOption.parents('.custom-select').find('.custom-select__select');
+  const selectedOption = targetOption.parents('.custom-select').find('.custom-select__selected-option');
 
-  [...parentSelect.options].forEach((parentSelectOption, index) => {
+  [...parentSelect[0].options].forEach((parentSelectOption, index) => {
     if ($(parentSelectOption).text() === targetOption.text().split(/\s+/).join(' ')) {
-      parentSelect.selectedIndex = index;
-      selectedOptionContainer.text(targetOption.text());
+      selectedOption.text(targetOption.text());
+      parentSelect[0].selectedIndex = index;
+      parentSelect.trigger('change');
     }
   });
 };
@@ -71,28 +72,28 @@ const initCustomSelect = () => {
   customSelectContainers.each((_, customSelectContainer) => {
     const select = $('.custom-select__select', customSelectContainer)[0];
 
-    /* Для каждого элемента создаем новый DIV (selectedOption),
+    /* Для каждого элемента создаем новый DIV (selectedOptionContainer),
     который будет выступать в качестве выбранной опции: */
-    $('<div></div>')
+    $('<div/>')
       .addClass('custom-select__selected')
       .attr('tabindex', '0')
-      .html($('<span></span>')
+      .html($('<span/>')
         .text(select.options[select.selectedIndex].textContent)
         .addClass('custom-select__selected-option'))
-      .on('click', onSelectedOptionClick)
+      .on('click', onSelectedOptionContainerClick)
       .appendTo(customSelectContainer);
 
     /* Для каждого элемента создаем новый DIV, который будет содержать список опций */
-    const optionList = $('<div></div>').addClass('custom-select__items custom-select__hide');
+    const optionList = $('<div/>').addClass('custom-select__items custom-select__hide');
 
     [...select.options].forEach((option) => {
       /* Для каждого варианта в исходном элементе select,
       создаем новый DIV (selectOption), который будет выступать в качестве элемента выбора: */
-      $('<div></div>')
+      $('<div/>')
         .addClass('custom-select__option')
         .text($(option).text())
         .html(addAccentClass)
-        .on('click', onSelectOption)
+        .on('click', onSelectOptionClick)
         .appendTo((optionList));
     });
 

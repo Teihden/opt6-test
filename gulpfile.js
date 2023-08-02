@@ -93,7 +93,6 @@ function optimizeJS() {
   return gulp.src('src/js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(terser())
-    // .pipe(rename((path) => ({ ...path, extname: '.min.js' })))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('build/js'))
     .pipe(browser.stream());

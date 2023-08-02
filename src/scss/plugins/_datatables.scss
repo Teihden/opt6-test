@@ -9,10 +9,9 @@
 
 .DTCR_clonedTable {
   border: 1px solid var(--light-gray) !important;
-  cursor: grabbing !important;
 
-  &::before,
-  &::after {
+  .sorting_asc::before,
+  .sorting_asc::after {
     display: none !important;
   }
 
@@ -57,9 +56,11 @@
   }
 
   .sorting_asc {
+    cursor: grab;
+
     &::before,
     &::after {
-      display: none;
+      display: none !important;
     }
   }
 

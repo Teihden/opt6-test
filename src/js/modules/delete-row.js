@@ -1,9 +1,7 @@
 import { handleEscapeKey } from './utils.js';
+import { html } from './html-elements.js';
 
 const { $ } = window;
-
-const DELETE_BUTTON = `<button class="data-table__delete-button delete-button" type="button">
-<span class="delete-button__text">Удалить</span></button>`;
 
 const closeDeleteButton = (deleteButton, target) => {
   deleteButton.fadeTo('fast', 0, () => deleteButton.remove());
@@ -14,12 +12,21 @@ const closeDeleteButton = (deleteButton, target) => {
 const onDocumentKeydown = (cb, evt) => handleEscapeKey(cb, evt);
 
 const deleteRow = (dataTable, evt) => {
-  dataTable
-    .row($(evt.target).parents('tr'))
-    .remove()
-    .draw();
+  const row = dataTable.row($(evt.target).parents('tr'));
+  const index = row.index();
 
-  // вставить функцию для отправки данных на сервер
+  row.remove().draw(false);
+
+  $('.drag-button__order').each((indexElement, orderElement) => {
+    const cell = dataTable.cell(orderElement.closest('td'));
+
+    cell.data(indexElement + 1).draw();
+  });
+
+  // Функция для отправки данных на сервер
+  $.post('example.php', { index })
+    .done(() => {})
+    .fail(() => {});
 };
 
 const createDeleteButton = (evt, dataTable) => {
@@ -28,7 +35,7 @@ const createDeleteButton = (evt, dataTable) => {
   if (!target.next('.delete-button').length > 0) {
     target.addClass('multipoint-button--active');
 
-    const deleteButton = $(DELETE_BUTTON);
+    const deleteButton = $(html.deleteButton);
     const closeDeleteButtonCallback = () => closeDeleteButton(deleteButton, target);
 
     deleteButton
