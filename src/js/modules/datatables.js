@@ -226,7 +226,10 @@ const initDatatable = (table) => {
   const onWindowResize = debounce(() => {
     table.css('width', '100%');
     dataTable.columns.adjust().draw();
-  }, 100);
+
+    removeColResizable(table);
+    initColResizable(table);
+  }, 150);
 
   window.addEventListener('resize', onWindowResize);
 };

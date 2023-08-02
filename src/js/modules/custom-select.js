@@ -29,7 +29,7 @@ const onSelectedOptionClick = (evt) => {
   evt.preventDefault();
   evt.stopPropagation();
 
-  const target = $(evt.target);
+  const target = $(evt.currentTarget);
   const optionItemsContainer = target.next();
 
   if (optionItemsContainer.hasClass('custom-select__hide')) {
@@ -63,8 +63,10 @@ const addAccentClass = (_, htmlString) => {
 };
 
 const initCustomSelect = () => {
-  /* Ищем элементы с классом "custom-select": */
-  const customSelectContainers = $('.custom-select');
+  /* Ищем элементы с классом "custom-select",
+     Отфильтровываем те, которые уже инициализированы */
+  const customSelectContainers = $('.custom-select')
+    .not((_, container) => $.contains(container, $('.custom-select__selected', container)[0]));
 
   customSelectContainers.each((_, customSelectContainer) => {
     const select = $('.custom-select__select', customSelectContainer)[0];
@@ -73,7 +75,10 @@ const initCustomSelect = () => {
     который будет выступать в качестве выбранной опции: */
     $('<div></div>')
       .addClass('custom-select__selected')
-      .text(select.options[select.selectedIndex].innerHTML)
+      .attr('tabindex', '0')
+      .html($('<span></span>')
+        .text(select.options[select.selectedIndex].textContent)
+        .addClass('custom-select__selected-option'))
       .on('click', onSelectedOptionClick)
       .appendTo(customSelectContainer);
 

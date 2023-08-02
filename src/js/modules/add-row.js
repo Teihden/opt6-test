@@ -1,3 +1,5 @@
+import { initCustomSelect } from './custom-select.js';
+
 const { $ } = window;
 
 const onNewRowButtonClick = (dataTable) => {
@@ -17,7 +19,12 @@ const onNewRowButtonClick = (dataTable) => {
     .draw()
     .node();
 
-  $('.data-table__select', newRow).get(0).focus({ focusVisible: true });
+  initCustomSelect();
+
+  const selectedOption = $('.custom-select__selected', newRow);
+
+  // selectedOption[0].focus({ focusVisible: true });
+  selectedOption[0].click();
 
   // вставить функцию для отправки данных на сервер
 };
